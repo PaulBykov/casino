@@ -78,7 +78,7 @@ inline void setup() {
 					
 					cout << "¬ведите желаемый процент на победу " << endl;
 					cin >> chance;
-
+					// 
 				}
 			}
 			break;

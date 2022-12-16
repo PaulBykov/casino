@@ -5,7 +5,7 @@
 using namespace std;
 
 float balance = 0.0;
-int chance = 0.002;
+float chance = 20;
 
 int main()
 {
