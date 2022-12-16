@@ -1,30 +1,32 @@
 ﻿#include <Windows.h>
 #include <iostream>
+#include <chrono>
+#include <thread>
 #include <ctime>
 #include <io.h>
 #include <fcntl.h>
-#include "settings.cpp"
 
 using namespace  std;
 
 extern int chance;
 extern float balance;
+extern float bet;
 
-int f1(int n, int psize_cimbol)
+inline int f1(int n, int psize_cimbol)
 {
 	if (n == psize_cimbol)
 		return (n -= psize_cimbol);
 	return n;
 
 }
-int f2(int n, int psize_column, int psize_cimbol)
+inline int f2(int n, int psize_column, int psize_cimbol)
 {
 		if (n - psize_column < 0)
 			return (n = psize_cimbol - psize_column + n + 1);
 		else
 			return ( n -= psize_column - 1);
 }
-int f3(int pr, int psize_column, int psize_cimbol)
+inline int f3(int pr, int psize_column, int psize_cimbol)
 {
 	pr -= (psize_column - 1) / 2;
 	if (pr < 0)
@@ -32,14 +34,14 @@ int f3(int pr, int psize_column, int psize_cimbol)
 	return(pr);
 }
 
-int main()
+inline void mashine()
 {
-	wchar_t B[] = { L'A', L'$', L'€', L'♛', L'⚜', L'☺', L'7', L'߷', L'♠', L'\0' };
-	int r, m, p1 = 1, p2 = 1, p3 = 1, chance_rand, size_column = 5, r1, r2, r3, size_cimbol = sizeof(B) / 2 - 1, stop = 200;
-	srand((unsigned)time(NULL));
 	_setmode(_fileno(stdout), _O_U16TEXT);
 	_setmode(_fileno(stdin), _O_U16TEXT);
 	_setmode(_fileno(stderr), _O_U16TEXT);
+	wchar_t B[] = { L'A', L'$', L'€', L'♛', L'⚜', L'☺', L'7', L'߷', L'♠', L'\0' };
+	int r, m, p1 = 1, p2 = 1, p3 = 1, chance_rand, size_column = 5, r1, r2, r3, size_cimbol = sizeof(B) / 2 - 1, stop = 200;
+	srand((unsigned)time(NULL));
 	r1 = rand() % size_cimbol;
 	r2 = rand() % size_cimbol;
 	r3 = rand() % size_cimbol;
@@ -117,7 +119,7 @@ int main()
 		}
 		if (p1 == 2)
 		{
-			wcout << L"ПОЗДРАВЛЯЮ!!!\nУ вас выпало КОРОНА!!!(вирус)";
+			wcout << L"ПОЗДРАВЛЯЮ!!!\nУ вас выпало КОРОНА!!!(вирус)"; // осуждаю
 			m = 10;
 		}
 		if (p1 == 1 || p1 == 0)
@@ -136,12 +138,12 @@ int main()
 			m = 2;
 		}
 		wcout << L"Вы получаете " << balance * m;
-		return (balance*m);
+		balance += bet * m;
 	}
 
 	else
 	{
-		wcout << L"Вы проиграли.";
-		return (-balance);
+		wcout << L"Вы проиграли " << bet << endl;
+		balance -= bet;
 	}
 }

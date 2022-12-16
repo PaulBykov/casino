@@ -1,19 +1,21 @@
 ﻿#include <iostream>
 #include "settings.cpp"
 #include <iomanip>
+#include "game_machine.cpp"
 
 using namespace std;
 
 float balance = 0.0;
-float chance = 20;
+int chance = 20;
+float bet = 0.0;
 
 int main()
 {
+    _setmode(_fileno(stdout), _O_TEXT);
+    _setmode(_fileno(stdin), _O_TEXT);
+    _setmode(_fileno(stderr), _O_TEXT);
     setlocale(LC_ALL, "Rus");
-    // Вывести надпись казино
-
-    cout << "\n";
-
+    system("cls");
     char space = ' ';
     cout << setw(40) << setfill(space) << space;
     cout << " $$$$    $$$$    $$$$   $$$$$$  $$  $$   $$$$" << endl;
@@ -50,26 +52,30 @@ int main()
     int decision; cin >> decision;
     
     switch (decision) {
-    case(1): {
+        case(1): {
 
-        // Вызвать метод для старта игры в блекджек
-        break;
+            // Вызвать метод для старта игры в блекджек
+            break;
+        }
+        case(2): {
+            system("cls");
+            cout << "Сделайте ваши ставки: ";
+            cin >> bet;
+            system("cls");
+            mashine();
+            main();
+            break;
+        }
+        case(3): {
+            setup();
+            system("cls");
+            main();
+            break;
+        }
+        default: {
+            cout << "Ошибка ввода! Следуйте инструкциям при выполнении программы!";
+        }
     }
-    case(2): {
-
-        // Игра в игровые автоматы
-        break;
-    }
-    case(3): {
-        setup();
-        system("cls");
-        main();
-        break;
-    }
-    default: {
-        cout << "Ошибка ввода! Следуйте инструкциям при выполнении программы!";
-    }
-}
 
     return 0;
 }
