@@ -8,7 +8,7 @@
 
 using namespace  std;
 
-extern int chance;
+extern float chance;
 extern float balance;
 extern float bet;
 
@@ -39,7 +39,7 @@ inline void mashine()
 	_setmode(_fileno(stdout), _O_U16TEXT);
 	_setmode(_fileno(stdin), _O_U16TEXT);
 	_setmode(_fileno(stderr), _O_U16TEXT);
-	wchar_t B[] = { L'A', L'$', L'€', L'♛', L'⚜', L'☺', L'7', L'߷', L'♠', L'\0' };
+	wchar_t B[] = { L'A', L'$', L'€', L'@', L'Ψ', L'☺', L'7', L'♥', L'♠', L'\0' };
 	int r, m, p1 = 1, p2 = 1, p3 = 1, chance_rand, size_column = 5, r1, r2, r3, size_cimbol = sizeof(B) / 2 - 1, stop = 200;
 	srand((unsigned)time(NULL));
 	r1 = rand() % size_cimbol;
@@ -139,11 +139,13 @@ inline void mashine()
 		}
 		wcout << L"Вы получаете " << balance * m;
 		balance += bet * m;
+		Sleep(1);
 	}
 
 	else
 	{
 		wcout << L"Вы проиграли " << bet << endl;
 		balance -= bet;
+		Sleep(1);
 	}
 }

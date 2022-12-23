@@ -2,11 +2,13 @@
 #include "settings.cpp"
 #include <iomanip>
 #include "game_machine.cpp"
+#include "blackjack.cpp"
+#include <string>
 
 using namespace std;
 
 float balance = 0.0;
-int chance = 20;
+float chance = 20;
 float bet = 0.0;
 
 int main()
@@ -53,16 +55,34 @@ int main()
     
     switch (decision) {
         case(1): {
+            system("cls");
 
-            // Вызвать метод для старта игры в блекджек
+            repeat1:
+
+            cout << "Сделайте ваши ставки: " << "(Ваш баланс: " << balance << ")";
+            cin >> bet;
+            if (bet > balance) {
+                cout << "Вы не можете ставить больше вашего баланса!" << endl;
+                goto repeat1;
+            }
+            system("cls");
+            jack();
+            main();
             break;
         }
         case(2): {
             system("cls");
-            cout << "Сделайте ваши ставки: ";
+
+        repeat:
+
+            cout << "Сделайте ваши ставки: " << "(Ваш баланс: " << balance << ")";
             cin >> bet;
+            if (bet > balance) {
+                cout << "Вы не можете ставить больше вашего баланса!" << endl;
+                goto repeat;
+            }
             system("cls");
-            mashine();
+            mashine(); // Вызвать метод для старта игры в блекджек
             main();
             break;
         }

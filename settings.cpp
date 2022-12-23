@@ -7,7 +7,7 @@
 using namespace std;
 
 extern float balance;
-extern int chance;
+extern float chance;
 
 inline void setup() {
 
@@ -78,7 +78,7 @@ inline void setup() {
 					
 					cout << "¬ведите желаемый процент на победу ";
 					cin >> chance;
-
+					chance *= 100;
 				}
 			}
 			break;
