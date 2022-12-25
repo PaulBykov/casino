@@ -50,8 +50,6 @@ inline void jack() {
 	const int n = 52;
 	
 	_setmode(_fileno(stdout), _O_U16TEXT);
-	_setmode(_fileno(stdin), _O_U16TEXT);
-	_setmode(_fileno(stderr), _O_U16TEXT);
 
 	vector< vector<wstring> > coloda;
 	coloda.resize(n, vector <wstring>(2));
@@ -107,7 +105,7 @@ inline void jack() {
 		wcout << L"Ваши очки: " << GetSum(player) << endl;
 		wcout << L"Желаете взять ещё карту? (1 - да, 2 - нет)" << endl;
 		int decision = 0;
-		wcin >> decision;
+		cin >> decision;
 		system("cls");
 		switch (decision) {
 			case(1):{
