@@ -37,8 +37,6 @@ inline int f3(int pr, int psize_column, int psize_cimbol)
 inline void mashine()
 {
 	_setmode(_fileno(stdout), _O_U16TEXT);
-	_setmode(_fileno(stdin), _O_U16TEXT);
-	_setmode(_fileno(stderr), _O_U16TEXT);
 	wchar_t B[] = { L'A', L'$', L'€', L'@', L'Ψ', L'☺', L'7', L'♥', L'♠', L'\0' };
 	int r, m, p1 = 1, p2 = 1, p3 = 1, chance_rand, size_column = 5, r1, r2, r3, size_cimbol = sizeof(B) / 2 - 1, stop = 200;
 	srand((unsigned)time(NULL));
