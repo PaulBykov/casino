@@ -7,6 +7,9 @@
 #include <map>
 #include <iomanip>
 
+extern float balance;
+extern float bet;
+
 using namespace std;
 
 inline void GetCard(int& hand, vector< vector<string> >& coloda, vector< vector<string> >& player, int& temp);
@@ -170,12 +173,14 @@ inline void jack() {
 
 		if (GetSum(diller) > GetSum(player) && GetSum(diller) < 22) {
 			cout << "Победа диллера!" << endl;
+			balance -= bet;
 		}
 		else if (GetSum(diller) == GetSum(player) && GetSum(diller) < 22) {
 			cout << "Ничья!" << endl;
 		}
 		else {
 			cout << "Вы победили!" << endl;
+			balance += bet;
 		}
 	}
 	else {
@@ -202,6 +207,7 @@ inline void jack() {
 		}
 		cout << "Ваши очки: " << GetSum(player) << endl;
 		cout << "Вы проиграли!" << endl;
+		balance -= bet;
 	}
 
 
