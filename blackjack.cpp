@@ -138,7 +138,7 @@ inline void jack() {
 			else {
 				wcout << setw(6) << setfill(space) << space;
 			}
-			wcout << player[i][0] << " " << player[i][1] << L"|" << endl;
+			wcout << player[i][0] << L" " << player[i][1] << L"|" << endl;
 			for (int j = 0; j < 6; j++) {
 				wcout << L"|";
 				wcout << setw(9) << setfill(space) << space << L"|" << endl;
