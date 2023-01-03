@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test cases</title>
+    <style>
+        body{
+            background-color: rgb(111, 111, 111);
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-flow: column nowrap;
+        }
+
+        .header {
+            display: flex;
+            justify-content: center;
+            margin: 0;
+        }
+        .main{
+            display: flex;
+            flex-flow: row wrap;
+        }
+        .main .number_system,
+        .simple_calculator,
+        .timetable,
+        .string_calculator {
+            border: 1px solid rgb(178, 178, 178);
+            margin: 15px 30px;
+            flex: 1 1 30%;
+            background-color: rgb(99, 99, 99);
+        }
+
+        .title {
+            display: flex;
+            justify-content: center;
+        }
+        .table{
+            margin: 0px 0px 15px 0px;
+            display: flex;
+            justify-content: center;
+        }
+        table{
+            border-collapse: collapse;
+        }
+        table th, td{
+            border: 1px solid rgb(178, 178, 178);
+            padding: 5px 10px;
+            text-align: center;
+        }
+        .content{
+            display: flex;
+            justify-content: center;
+            color: rgb(178, 178, 178);
+        }
+        .simple_calculator .table img{
+            width: 400px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="header">
+                <h1>Test cases</h1>
+            </div>
+        </header>
+        <main>
+            <div class="main">
+                <div class="number_system">     <!-- <---- див для Стасика -->
+                    <div class="title">
+                        <h3>Black Jack</h3>
+                    </div>
+                    <div class="table">
+                        <table>
+                            <tr>
+                                <th>Условие</th>
+                                <th>Скриншот</th>
+                                <th>Результат</th>
+                            </tr>
+                            <tr>
+                                <td>Попытка сделать ставку больше баланса</td>
+                                <td><img src="img/bj1.png" alt=""></td>
+                                <td>Успешно</td>
+                            </tr>
+                            <tr>
+                                <td>Попытка взять дополнительную карту</td>
+                                <td><img src="img/bj2.png" width="50%" height="50%" alt=""></td>
+                                <td>Успешно</td>
+                            </tr>
+                            <tr>
+                                <td>Попытка НЕ брать больше карт</td>
+                                <td><img src="img/bj3.png" width="50%" height="50%" alt=""></td>
+                                <td>Успешно</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="simple_calculator">      <!-- <---- див для Матвея -->
+                    <div class="title">
+                        <h3>Игровой Автомат</h3>
+                    </div>
+                    <div class="table">
+                        <table>
+                            <tr>    
+                                <th>Условие</th>
+                                <th>Скриншот</th>
+                                <th>Результат</th>
+                            </tr>
+                            <tr>
+                                <td>Попытка сделать ставку больше баланса</td>
+                                <td><img src="img/bj1.png" alt=""></td>
+                                <td>Успешно</td>
+                            </tr>
+                            <tr>
+                                <td>Исход поражения</td>
+                                <td><img src="img/a1.png" alt=""></td>
+                                <td>Успешно</td>
+                            </tr>
+                            <tr>
+                                <td>Исход победы</td>
+                                <td><img src="img/a2.png" alt=""></td>
+                                <td>Успешно</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="timetable">
+                    <div class="title">
+                        <h3>Пункт настройки</h3>
+                    </div>
+                    <div class="table">
+                        <table>
+                            <tr>
+                                <th>Условие</th>
+                                <th>Скриншот</th>
+                                <th>Результат</th>
+                            </tr>
+                            <tr>
+                                <td>Изменение цвета на желтый</td>
+                                <td><img src="img/n1.png" width="90%" height="90%" alt=""></td>
+                                <td>Успех</td>
+                            </tr>
+                            <tr>
+                                <td>Изменение баланса</td>
+                                <td><img src="img/n2.png" width="90%" height="90%" alt=""></td>
+                                <td>Успех</td>
+                            </tr>
+                            <tr>
+                                <td>Изменение шансов казино</td>
+                                <td><img src="img/n3.png" width="90%" height="90%" alt=""></td>
+                                <td>Успех</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+        </main>
+        <footer>
+            <div class="footer">
+                <div class="content">
+                    <p>Лабораторная работа №12</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
